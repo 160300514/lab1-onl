@@ -1,3 +1,5 @@
+package P1;
+
 import java.io.*;
 import java.lang.*;
 import java.util.Scanner;
