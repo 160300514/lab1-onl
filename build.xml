@@ -5,16 +5,73 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="lab1">
     <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="9"/>
     <property name="source" value="9"/>
     <path id="JUnit 4.libraryclasspath">
+        <pathelement location="lib/junit.jar"/>
         <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
-        <pathelement location="lib/junit-4.12.jar"/>
     </path>
     <path id="lab1.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.ExtractTest.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.FilterTest.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.FriendshipGraphTest.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.Main (1).classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.Main.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.MySocialNetworkTest.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.RulesOf6005Test.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/javax.json-1.0.jar"/>
+    </path>
+    <path id="run.SocialNetworkTest.classpath">
+        <path refid="lab1.classpath"/>
+        <pathelement location="lib/junit.jar"/>
+        <pathelement location="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
         <pathelement location="lib/hamcrest-core-1.3.jar"/>
         <pathelement location="lib/javax.json-1.0.jar"/>
     </path>
@@ -52,5 +109,73 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
+    </target>
+    <target name="ExtractTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.P4.ExtractTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.ExtractTest.classpath"/>
+        </junit>
+    </target>
+    <target name="FilterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.P4.FilterTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.FilterTest.classpath"/>
+        </junit>
+    </target>
+    <target name="FriendshipGraphTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.P3.FriendshipGraphTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.FriendshipGraphTest.classpath"/>
+        </junit>
+    </target>
+    <target name="Main (1)">
+        <java classname="src.P4.twitter.Main" failonerror="true" fork="yes">
+            <classpath refid="run.Main (1).classpath"/>
+        </java>
+    </target>
+    <target name="Main">
+        <java classname="P4.twitter.Main" failonerror="true" fork="yes">
+            <classpath refid="run.Main.classpath"/>
+        </java>
+    </target>
+    <target name="MySocialNetworkTest">
+        <java classname="test.P4.MySocialNetworkTest" failonerror="true" fork="yes">
+            <classpath refid="run.MySocialNetworkTest.classpath"/>
+        </java>
+    </target>
+    <target name="RulesOf6005Test">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="src.P2.rules.RulesOf6005Test" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.RulesOf6005Test.classpath"/>
+        </junit>
+    </target>
+    <target name="SocialNetworkTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.P4.SocialNetworkTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="run.SocialNetworkTest.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
     </target>
 </project>

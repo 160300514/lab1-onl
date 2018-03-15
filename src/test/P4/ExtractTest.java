@@ -1,7 +1,7 @@
 /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
  * Redistribution of original or derived work requires permission of course staff.
  */
-package twitter;
+package test.P4;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,10 @@ import java.util.Arrays;
 import java.util.Set;
 
 import org.junit.Test;
+
+import src.P4.twitter.Extract;
+import src.P4.twitter.Timespan;
+import src.P4.twitter.Tweet;
 
 public class ExtractTest {
 

@@ -1,5 +1,10 @@
+package test.P3;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
+import src.P3.FriendshipGraph;
+import src.P3.Person;
+
 public class FriendshipGraphTest {
 	/**
      * Tests that assertions are enabled.

@@ -1,4 +1,4 @@
-package twitter;
+package test.P4;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -6,6 +6,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import src.P4.twitter.Extract;
+import src.P4.twitter.MySocialNetwork;
+import src.P4.twitter.Timespan;
+import src.P4.twitter.Tweet;
+import src.P4.twitter.TweetReader;
 
 public class MySocialNetworkTest {
 	public static URL SAMPLE_SERVER = makeURLAssertWellFormatted("https://raw.githubusercontent.com/rainywang/Spring2018_HITCS_SC_Lab1/master/P4/src/tweetPoll.py");
