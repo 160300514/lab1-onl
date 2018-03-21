@@ -50,7 +50,7 @@ public class Main {
             tweets = TweetReader.readTweetsFromWeb(SAMPLE_SERVER);
         } catch (IOException ioe) {
             //throw new RuntimeException(ioe);
-        	SAMPLE_SERVER = makeURLAssertWellFormatted("file:///D:/programme/jaba/P4/src/tweetPoll.py");
+        	SAMPLE_SERVER = makeURLAssertWellFormatted("file:///D:/programme/lab1/lab1/src/src/P4/tweetPoll.py");
         	tweets = TweetReader.readTweetsFromWeb(SAMPLE_SERVER);
         }
         

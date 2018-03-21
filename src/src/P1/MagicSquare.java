@@ -9,12 +9,12 @@ import java.util.Vector;
 public class MagicSquare{
     public static void main(String[] s)
     {
-        String[] ss = {"txt/1.txt",
-                "txt/2.txt",
-                "txt/3.txt",
-                "txt/4.txt",
-                "txt/5.txt",
-                "txt/6.txt"};
+        String[] ss = {"src/src/P1/txt/1.txt",
+                "src/src/P1/txt/2.txt",
+                "src/src/P1/txt/3.txt",
+                "src/src/P1/txt/4.txt",
+                "src/src/P1/txt/5.txt",
+                "src/src/P1/txt/6.txt"};
         MagicSquare1 jdg = new MagicSquare1();
         try {
             for(int i=0;i<5;i++)
@@ -22,7 +22,7 @@ public class MagicSquare{
                 if(!jdg.isLegalMagicSquare(ss[i]))
                 {
                     System.out.println("false");
-                    System.out.println("Wrong Matrix...");
+                    //System.out.println("Wrong Matrix...");
                 }
                 else
                 {
